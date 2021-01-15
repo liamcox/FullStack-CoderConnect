@@ -1,11 +1,10 @@
 import React, { Fragment, useState } from "react";
-import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-// import { setAlert } from "../../actions/alert";
-// import { register } from "../../actions/auth";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { login } from "../../actions/auth";
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -16,16 +15,20 @@ const Login = () => {
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = async (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-        console.log("success");
+        login(email, password);
     };
 
+    if (isAuthenticated) {
+        return <Redirect to='/dashboard' />;
+    }
+
     return (
-        <div>
+        <Fragment>
             <h1 className='large text-primary'>Sign In</h1>
             <p className='lead'>
-                <i className='fas fa-user' /> Sign into Your Account
+                <i className='fas fa-user' /> Sign Into Your Account
             </p>
             <form className='form' onSubmit={onSubmit}>
                 <div className='form-group'>
@@ -35,6 +38,7 @@ const Login = () => {
                         name='email'
                         value={email}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className='form-group'>
@@ -44,6 +48,7 @@ const Login = () => {
                         name='password'
                         value={password}
                         onChange={onChange}
+                        minLength='6'
                     />
                 </div>
                 <input
@@ -55,18 +60,17 @@ const Login = () => {
             <p className='my-1'>
                 Don't have an account? <Link to='/register'>Sign Up</Link>
             </p>
-        </div>
+        </Fragment>
     );
 };
 
-// Register.propTypes = {
-//     // setAlert: PropTypes.func.isRequired,
-//     register: PropTypes.func.isRequired,
-//     isAuthenticated: PropTypes.bool,
-// };
+Login.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
+};
 
-// const mapStateToProps = (state) => ({
-//     isAuthenticated: state.auth.isAuthenticated,
-// });
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+});
 
-export default Login;
+export default connect(mapStateToProps, { login })(Login);
