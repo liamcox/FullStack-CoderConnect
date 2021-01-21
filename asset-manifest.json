@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/FullStack-CoderConnect/static/css/main.47915178.chunk.css",
+    "main.js": "/FullStack-CoderConnect/static/js/main.33f06810.chunk.js",
+    "main.js.map": "/FullStack-CoderConnect/static/js/main.33f06810.chunk.js.map",
+    "runtime-main.js": "/FullStack-CoderConnect/static/js/runtime-main.7ef3d973.js",
+    "runtime-main.js.map": "/FullStack-CoderConnect/static/js/runtime-main.7ef3d973.js.map",
+    "static/js/2.b2042648.chunk.js": "/FullStack-CoderConnect/static/js/2.b2042648.chunk.js",
+    "static/js/2.b2042648.chunk.js.map": "/FullStack-CoderConnect/static/js/2.b2042648.chunk.js.map",
+    "index.html": "/FullStack-CoderConnect/index.html",
+    "static/css/main.47915178.chunk.css.map": "/FullStack-CoderConnect/static/css/main.47915178.chunk.css.map",
+    "static/js/2.b2042648.chunk.js.LICENSE.txt": "/FullStack-CoderConnect/static/js/2.b2042648.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/FullStack-CoderConnect/static/media/showcase.33c7a31b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ef3d973.js",
+    "static/js/2.b2042648.chunk.js",
+    "static/css/main.47915178.chunk.css",
+    "static/js/main.33f06810.chunk.js"
+  ]
+}
